@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" class="fh">
+<head>
+  <meta charset="utf-8">
+  <title>StepKnow.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" />
+<link href="css/style.css" rel="stylesheet" />
+</head>
+<body id="player-screen" class="fh">
+
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+
+      <button class="navbar-toggler" type="button" id="drawer-toogle-button">
+        <span id="toggle-button-icon" class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" href="./">StepKnow.com</a>
+
+      <!--<div class="col-md-3 text-end" id="topbar-signup" style="display: none">
+        <a type="button" class="btn btn-outline-primary me-2" href="./login.html">Login</a>
+        <a type="button" class="btn btn-primary" href="./signup.html">Sign-up</a>
+      </div>
+
+      <div class="dropdown text-end" id="topbar-user" style="display: none">
+          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://avatars.dicebear.com/api/adventurer-neutral/mail%40ashallendesign.co.uk.svg" alt="mdo" width="32" height="32" class="rounded-circle">
+            https://eu.ui-avatars.com/api/?name=John+Doe&size=25
+          </a>
+          <ul class="dropdown-menu text-small dropdown-menu-end" aria-labelledby="dropdownUser1" style="">
+            <li><a class="dropdown-item" href="./">My profile page</a></li>
+            <li><a class="dropdown-item disabled" href="./">My chats</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./search.html">Search a person</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item signout-button" href="#">Sign out</a></li>
+          </ul>
+      </div>-->
+
+    </div>
+  </nav>
+
+  <main class="flex-container-fh">
+
+    <div class="container-fluid flex-container-fh">
+
+        <div class="row flex-container-fh flex-content-fh">
+
+            <div id="layout-drawer" class="col-xs-12 col-md-4 small-hide flex-fh fh" style="box-shadow: 3px 3px 9px #999; margin-left: -24px; padding-left: 36px">
+
+              <p class="m-1">Collection/layer</p>
+
+              <div class="d-grid gap-2 dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Barcelona L1 Metro</button>
+
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item disabled" href="#">Change Collection</a></li>
+                    <li><a class="dropdown-item disabled" href="#">Detect direction</a></li>
+                  </ul>
+              </div>
+
+              <p class="small m-1">Suggested speed: 30 km/h</p>
+
+              <div class="flex-fh my-4" style="overflow-y: scroll; position: relative;">
+
+                  <div class="list-group" id="current-collection-list" style="position: absolute; width: 100%">
+                      
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div id="layout-content" class="col-xs-12 col-md-8 p-0" style="position: relative; overflow-y: scroll">
+            <div style="position: absolute; width: 100%;" class="p-2">
+              <div style="display: flex;">
+                <div>
+                  <a href="#" class="btn btn-primary mt-4 button-prev-step">
+                    <span class="fa fa-backward-step"></span>
+                  </a>
+                </div>
+                <h1 class="text-center mt-4" style="flex-grow: 1;">
+                  <span id="current-title"></span>
+                  <span class="fa fa-spinner fa-spin play-progress-indicator" style="/* display: none */"></span>
+                </h1>
+                <div>
+                  <a href="#" class="btn btn-primary mt-4 button-next-step">
+                    <span class="fa fa-forward-step"></span>
+                  </a>
+                </div>
+              </div>
+              <p class="text-center mt-5 mb-0" id="current-coords">
+                0, 0
+              </p>
+              <p class="text-center mt-1 mb-5">
+                Nearby place: <a href='#' id='current-nearby'>/</a>
+              </p>
+
+              <button class="btn btn-outline-secondary" id="read-tts-button">
+                <span class="fa fa-volume-high"></span>
+              </button>
+              <div id="audio"></div>
+
+              <p class="m-2" style="font-size: larger;">
+
+                <span id="current-text" style="white-space: pre-line;">
+                
+                </span>
+
+              </p>
+          </div>
+
+      </div>
+      
+    </div>
+
+
+  </main>
+
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- <script src="speakClient.js"></script> -->
+<script src="mespeak.js"></script>
+  <script type="module" src="js/main.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
